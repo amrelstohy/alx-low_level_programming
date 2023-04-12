@@ -1,22 +1,28 @@
 #include <stdio.h>
 
 /**
- * main - print 00 to 99
+ * main - g
  *
  * Return: zero
  */
 int main(void)
 {
-	int i;
+	int x, var;
 
-	for (i = 0; i <= 99; i++)
+	for (var = '0'; var <= '9'; var++)
 	{
-		putchar((i / 10) + '0');
-		putchar((i % 10) + '0');
-		if (i == 99)
-			break;
-		putchar(',');
-		putchar(' ');
+		for (x = '1'; x <= '9'; x++)
+		{
+			if (x != var && x > var)
+			{
+				putchar(var);
+				putchar(x);
+				if (var == '8' && x == '9')
+					break;
+				putchar(',');
+				putchar(' ');
+			}
+		}
 	}
 	putchar('\n');
 	return (0);
