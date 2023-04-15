@@ -16,7 +16,7 @@ int main(void)
 		{
 			n = n / i;
 			if (m < i)
-				m = i; 
+				m = i;
 			i = 1;
 		}
 	}
