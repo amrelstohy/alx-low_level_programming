@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int i, m, x;
+	int i, m = 0;
 	long int n = 612852475143;
 
 	for (i = 2; i <= n; i++)
@@ -15,7 +15,8 @@ int main(void)
 		if (n % i == 0)
 		{
 			n = n / i;
-			m = i;
+			if (m < i)
+				m = i; 
 			i = 1;
 		}
 	}
