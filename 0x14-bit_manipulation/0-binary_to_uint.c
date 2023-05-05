@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * binary_to_uint - function
  *
@@ -9,7 +10,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	int x, i = 0, z = 0, d = 0, c = 1;
 
-	if (b)
+	if (b == NULL)
 		return (0);
 	while (b[i])
 	{
