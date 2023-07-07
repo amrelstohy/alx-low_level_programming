@@ -1,6 +1,6 @@
 #include "hash_tables.h"
 /**
- * mall - creates a hash item
+ * all - creates a hash item
  * @key: key of the iteem
  * @value: value of the item
  *
