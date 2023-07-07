@@ -8,10 +8,11 @@
  */
 hash_node_t *mall(const char *key, const char *value)
 {
-	hash_node_t *item = malooc(sizeof(hash_node_t));
+	char *x, *z;
+	hash_node_t *item = malloc(sizeof(hash_node_t));
 
-	x = malloc(sizeof(key) + 1);
-	z = malloc(sizeof(value) + 1);
+	x = malloc(strlen(key) + 1);
+	z = malloc(strlen(value) + 1);
 	if (item == NULL || x == NULL || z == NULL)
 		return (NULL);
 	strcpy(x, key);
@@ -31,10 +32,12 @@ hash_node_t *mall(const char *key, const char *value)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
+	unsigned long int index;
+	char *z;
+
 	if (ht == NULL || key == NULL)
-		return (0)
-	char *x, *z
-	unsigned long int index = key_index(key, size);
+		return (0);
+	index = key_index((const unsigned char *)key, ht->size);
 
 	if (ht->array[index] == NULL)
 	{
@@ -52,10 +55,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			hash_node_t *item = malooc(sizeof(hash_node_t));
+			char *x;
+			hash_node_t *item = malloc(sizeof(hash_node_t));
 
-			x = malloc(sizeof(key) + 1);
-			z = malloc(sizeof(value) + 1);
+			x = malloc(strlen(key) + 1);
+			z = malloc(strlen(value) + 1);
 			if (item == NULL || x == NULL || z == NULL)
 				return (0);
 			strcpy(x, key);
