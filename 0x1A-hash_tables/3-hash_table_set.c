@@ -13,8 +13,6 @@ hash_node_t *mall(const char *key, const char *value)
 
 	x = malloc(strlen(key) + 1);
 	z = malloc(strlen(value) + 1);
-	if (item == NULL || x == NULL || z == NULL)
-		return (NULL);
 	strcpy(x, key);
 	strcpy(z, value);
 	item->key = x;
@@ -42,21 +40,24 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht->array[index] == NULL)
 	{
-		ht->array[index] = mall(key, value);
+		item = mall(key, value);
+		if (item == NULL)
+			return (0);
+		ht->array[index] = item;
 		return (1);
 	}
 	else
 	{
 		if (strcmp(ht->array[index]->key, key) == 0)
 		{
-			z = malloc(sizeof(value) + 1);
-			strcpy(z, value);
-			ht->array[index]->value = z;
+			strcpy(ht->array[index]->value, value);
 			return (1);
 		}
 		else
 		{
 			item = mall(key, value);
+			if (node == NULL)
+				return (0);
 			item->next = ht->array[index];
 			ht->array[index]->next = item;
 			return (1);
