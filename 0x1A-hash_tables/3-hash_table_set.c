@@ -1,65 +1,62 @@
-#include "hash_tables.h"
+#include"hash_tables.h"
 /**
- * mall - creates a hash item
+ * c_item - creates a hash item
  * @key: key of the iteem
- * @value: value of the item
+ * @values: value of the item
  *
  * Return: pointer of the item
  */
-hash_node_t *mall(const char *key, const char *value)
+hash_node_t *c_item(const char *key, const char *values)
 {
-	char *x, *z;
-	hash_node_t *item = malloc(sizeof(hash_node_t));
+	char *k, *v;
+	hash_node_t *node = malloc(sizeof(hash_node_t));
 
-	x = malloc(strlen(key) + 1);
-	z = malloc(strlen(value) + 1);
-	strcpy(x, key);
-	strcpy(z, value);
-	item->key = x;
-	item->value = z;
-	item->next = NULL;
-	return (item);
+	k = malloc(strlen(key) + 1);
+	v = malloc(strlen(values) + 1);
+	strcpy(k, key);
+	strcpy(v, values);
+	node->key = k;
+	node->value = v;
+	node->next = NULL;
+	return (node);
 }
 /**
- * hash_table_set - function
- * @ht: table
- * @key: key
- * @value: value
+ * hash_table_set - inserting an item
+ * @ht: pointer of the hash table
+ * @key: jey of the item
+ * @value: value of the item
  *
- * Return: succes
+ * Return: 0 or 1
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *item = malloc(sizeof(hash_node_t));
+	hash_node_t *current_node, *node;
 
 	if (ht == NULL || key == NULL)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
-
-	if (ht->array[index] == NULL)
+	current_node = ht->array[index];
+	if (current_node == NULL)
 	{
-		item = mall(key, value);
-		if (item == NULL)
+		node = c_item(key, value);
+		if (node == NULL)
 			return (0);
-		ht->array[index] = item;
+		ht->array[index] = node;
+		return (1);
+	}
+	else if (strcmp(current_node->key, key) == 0)
+	{
+		strcpy(current_node->value, value);
 		return (1);
 	}
 	else
 	{
-		if (strcmp(ht->array[index]->key, key) == 0)
-		{
-			strcpy(ht->array[index]->value, value);
-			return (1);
-		}
-		else
-		{
-			item = mall(key, value);
-			if (item == NULL)
-				return (0);
-			item->next = ht->array[index];
-			ht->array[index] = item;
-			return (1);
-		}
+		node = c_item(key, value);
+		if (node == NULL)
+			return (0);
+		node->next = ht->array[index];
+		ht->array[index] = node;
+		return (1);
 	}
 }
