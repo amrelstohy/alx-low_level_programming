@@ -1,10 +1,10 @@
 #include "hash_tables.h"
 /**
- * mall - function
- * @key: key
- * @value: value
+ * mall - creates a hash item
+ * @key: key of the iteem
+ * @value: value of the item
  *
- *Return: succes
+ * Return: pointer of the item
  */
 hash_node_t *mall(const char *key, const char *value)
 {
