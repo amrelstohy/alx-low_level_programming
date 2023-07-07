@@ -1,6 +1,6 @@
 #include "hash_tables.h"
 /**
- * all - creates a hash item
+ * mall - creates a hash item
  * @key: key of the iteem
  * @value: value of the item
  *
@@ -58,7 +58,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (item == NULL)
 				return (0);
 			item->next = ht->array[index];
-			ht->array[index]->next = item;
+			ht->array[index] = item;
 			return (1);
 		}
 	}
