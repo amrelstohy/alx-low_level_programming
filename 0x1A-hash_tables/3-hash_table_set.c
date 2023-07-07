@@ -31,7 +31,6 @@ hash_node_t *mall(const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	char *z;
 	hash_node_t *item = malloc(sizeof(hash_node_t));
 
 	if (ht == NULL || key == NULL)
@@ -56,7 +55,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		else
 		{
 			item = mall(key, value);
-			if (node == NULL)
+			if (item == NULL)
 				return (0);
 			item->next = ht->array[index];
 			ht->array[index]->next = item;
