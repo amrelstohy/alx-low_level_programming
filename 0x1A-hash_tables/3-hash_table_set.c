@@ -1,8 +1,8 @@
 #include "hash_tables.h"
 /**
- *mall - function
- *@key: key
- *@value: value
+ * mall - function
+ * @key: key
+ * @value: value
  *
  *Return: succes
  */
@@ -22,9 +22,9 @@ hash_node_t *mall(const char *key, const char *value)
 }
 /**
  * hash_table_set - function
+ * @ht: table
  * @key: key
  * @value: value
- * @ht: table
  *
  * Return: succes
  */
