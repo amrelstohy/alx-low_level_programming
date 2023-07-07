@@ -1,6 +1,4 @@
-#include"hash_tables.h"
-#include<stdlib.h>
-#include<stdio.h>
+#include "hash_tables.h"
 /**
  * hash_table_print - prints hash table
  * @ht: hash table pointer
@@ -8,7 +6,7 @@
  */
 void hash_table_print(const hash_table_t *ht)
 {
-  hash_node_t *node;
+	hash_node_t *node;
 	unsigned long int cont = 0, i = 0;
 
 	if (ht != NULL)
