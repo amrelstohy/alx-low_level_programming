@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 """
 module
 """
@@ -21,24 +22,16 @@ def island_perimeter(grid):
                     c = c + 1
                 elif (grid[x-1][y] == 0):
                     c = c + 1
-                else:
-                    pass
                 if (x + 1 > a - 1):
                     c = c + 1
                 elif (grid[x+1][y] == 0):
                     c = c + 1
-                else:
-                    pass
                 if (y - 1 < 0):
                     c = c + 1
                 elif (grid[x][y - 1] == 0):
                     c = c + 1
-                else:
-                    pass
                 if (y + 1 > b - 1):
                     c = c + 1
                 elif (grid[x][y + 1] == 0):
                     c = c + 1
-                else:
-                    pass
     return c
